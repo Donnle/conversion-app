@@ -1,0 +1,23 @@
+<form [formGroup]="conversionForm" class="form">
+  <label class="form-label">
+    <input (input)="onChange(true)" class="form-label__input" formControlName="firstInput" type="number">
+    <select (change)="onChange()" class="form-label__select" formControlName="firstSelect" name="currency-select">
+      <option
+        *ngFor="let currency of currencies"
+        [value]="currency"
+        class="form-label__select-option option"
+      >{{currency}}</option>
+    </select>
+  </label>
+
+  <label class="form-label">
+    <input (input)="onChange(false)" class="form-label__input" formControlName="secondInput" type="number">
+    <select (change)="onChange()" class="form-label__select" formControlName="secondSelect" name="currency-select">
+      <option
+        *ngFor="let currency of currencies"
+        [value]="currency"
+        class="form-label__select-option option"
+      >{{currency}}</option>
+    </select>
+  </label>
+</form>

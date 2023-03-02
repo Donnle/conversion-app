@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="header-wrapper">
+    <div class="header-content">
+      <div class="header-content__currency currency">
+        <ul class="currency-list">
+          <li *ngFor="let currency of currencies" class="currency-list__item item">
+            <span class="item-convert-info">
+              <span class="item-convert-info__currency">{{sourceCurrency}} to {{currency}}:</span>
+              <span *ngIf="courses" class="item-convert-info__course">
+                {{courses[sourceCurrency][currency] | number:'1.7-9'}}
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

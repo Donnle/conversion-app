@@ -1,0 +1,25 @@
+.header {
+  background-color: var(--light-purple-bg-color);
+
+  &-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+}
+
+.currency {
+  &-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.item {
+  &-convert-info {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+}
