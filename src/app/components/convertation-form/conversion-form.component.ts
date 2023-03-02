@@ -64,7 +64,7 @@ export class ConversionFormComponent implements OnInit, OnDestroy {
   private configureFields(isFirst: boolean) {
     const {firstSelect, secondSelect} = this.conversionForm.value
 
-    const isCourseExist = !!this.courses[firstSelect][secondSelect]
+    const isCourseExist = !!this.courses[firstSelect]?.[secondSelect]
 
     if (isCourseExist) {
       this.setInputsValues(isFirst)
@@ -84,11 +84,11 @@ export class ConversionFormComponent implements OnInit, OnDestroy {
     if (isFirst) {
       const convertedValue = this.roundToDecimalPlaces(this.courses[firstSelect][secondSelect] * firstInput, this.COUNT_NUMBERS_AFTER_DOT)
       this.conversionForm.patchValue({secondInput: convertedValue}, {emitEvent: false})
-      console.log(`${firstInput} ${firstSelect} => ${secondInput} ${secondSelect}`)
+      console.log(`${firstInput} ${firstSelect} => ${convertedValue} ${secondSelect}`)
     } else {
       const convertedValue = this.roundToDecimalPlaces(this.courses[secondSelect][firstSelect] * secondInput, this.COUNT_NUMBERS_AFTER_DOT)
       this.conversionForm.patchValue({firstInput: convertedValue}, {emitEvent: false})
-      console.log(`${secondInput} ${secondSelect} => ${firstInput} ${firstSelect}`)
+      console.log(`${secondInput} ${secondSelect} => ${convertedValue} ${firstSelect}`)
     }
   }
 }
